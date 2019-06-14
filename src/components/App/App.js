@@ -4,6 +4,10 @@ import './App.css';
 import Feeling from '../Feeling/Feeling';
 
 class App extends Component {
+
+  handleChangeFor = (propertyName) => (event) => {
+    
+  }
   render() {
     return (
       <div className="App">
