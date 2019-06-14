@@ -6,7 +6,7 @@ import Review from '../Review/Review';
 
 class Support extends Component {
     state = {
-        comment: '',
+        support: '',
     }
 
     handleChangeFor = (propertyName) => (event) => {

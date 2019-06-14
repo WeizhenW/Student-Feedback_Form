@@ -7,7 +7,7 @@ import Review from '../Review/Review';
 
 class Comment extends Component {
     state = {
-        feeling: '',
+        comment: '',
     }
 
     handleChangeFor = (propertyName) => (event) => {

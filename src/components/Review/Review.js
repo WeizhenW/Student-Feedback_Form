@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Understanding extends Component {
-
+    completed = () => {
+        const feedback = this.props.reduxState.feedbackReducer;
+        return feedback.feeling && feedback.understanding && feedback.support && feedback.comment;
+    }
 
     render() {
         return (
@@ -14,6 +17,11 @@ class Understanding extends Component {
                 <li>Support: {this.props.reduxState.feedbackReducer.support}</li>
                 <li>Comment: {this.props.reduxState.feedbackReducer.comment}</li>
             </ul>
+            {this.completed()?
+                <button>Submit</button>
+            :
+                <button>Incomplete</button>
+            }
         </div>
          );
     }
