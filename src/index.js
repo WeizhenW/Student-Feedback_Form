@@ -13,10 +13,10 @@ const feedbackObj = {
     support: '',
     comment: '',
 }
-const feedbackReducer = (state=feedbackObj, action) => {
-    if(action.type === 'SET_FEELING') {
-        return {...state, ...action.payload}
-    }
+const feedbackReducer = (state={}, action) => {
+    if (action.type === 'SET_FEEDBACK') {
+        return {...state, ...action.payload};
+    } 
     return state;
 }
 

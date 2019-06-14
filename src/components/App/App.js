@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Feeling from '../Feeling/Feeling';
+import Understanding from '../Understanding/Understanding';
+import Support from '../Support/Support';
+import Comment from '../Comment/Comment';
 
 class App extends Component {
 
-  handleChangeFor = (propertyName) => (event) => {
-    
-  }
+  
   render() {
     return (
       <div className="App">
@@ -16,7 +18,13 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <br/>
-        <Feeling />
+        <Router>
+          <Route path="/" exact component={Feeling} />
+          <Route path="/understanding" component={Understanding} />
+          <Route path="/support"  component={Support} />
+          <Route path="/comment"  component={Comment} />
+        </Router>
+        
       </div>
     );
   }
