@@ -7,6 +7,7 @@ import Support from '../Support/Support';
 import Comment from '../Comment/Comment';
 import Review from '../Review/Review';
 import ThankYou from '../ThankYou/ThankYou';
+import Admin from '../Admin/Admin';
 
 class App extends Component {
 
@@ -26,8 +27,8 @@ class App extends Component {
           <Route path="/comment"  component={Comment} />
           <Route path="/review"  component={Review} />
           <Route path="/thankyou"  component={ThankYou} />
+          <Route path="/admin"  component={Admin} />
         </Router>
-        
       </div>
     );
   }

@@ -1,27 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Link } from 'react-router-dom';
-import Review from '../Review/Review';
+import axios from 'axios';
 
 class Admin extends Component {
-    state = {
-        comment: '',
-    }
-
-
+   componentDidMount(){
+       axios({
+           method: 'GET',
+           url: '/feedback'
+       }).then(
+           response => {
+               console.log(response);
+               this.props.dispatch({
+                    type: 'SET_FEEDBACK_LIST',
+                    payload: response.data,
+                })
+           }
+       )
+    };
+    
     render() {
         return (
             <div>
-            <h2>Any comments you want to leave?</h2>
-            <p>Comments?</p>
-            <input type="text" placeholder="your comments" onChange={this.handleChangeFor('comment')}></input>
-            <Router>            
-                <Link to="/review" ><button onClick={this.handleNextPage}>Next</button></Link>
-            </Router>
-            <Review />
+            <h2>Feedback Results</h2>
+            <table>                
+                {this.props.reduxState.adminReducer.map(feedback => 
+                    <tr key={feedback.id}>
+                        <td>{feedback.feeling}</td>
+                        <td>{feedback.understanding}</td>
+                        <td>{feedback.support}</td>
+                        <td>{feedback.comments}</td>
+                    </tr>)}
+            </table>            
 
+            {/* {JSON.stringify(this.props.reduxState.adminReducer)}; */}
         </div>
-         );
+        );
     }
 }
 

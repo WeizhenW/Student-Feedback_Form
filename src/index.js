@@ -16,9 +16,17 @@ const feedbackReducer = (state={}, action) => {
     return state;
 }
 
+const adminReducer = (state=[], action) => {
+    if(action.type === 'SET_FEEDBACK_LIST') {
+        return action.payload;
+    }
+    return state;
+}
+
 const storeInstance = createStore(
     combineReducers({
         feedbackReducer,
+        adminReducer,
     }),
     applyMiddleware(logger)
 );

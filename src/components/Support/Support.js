@@ -14,10 +14,6 @@ class Support extends Component {
         })
     }
 
-    handleNextPage = () => {
-        
-    }
-
     render() {
         return (
             <div>
@@ -25,7 +21,7 @@ class Support extends Component {
             <p>Feeling?</p>
             <input type="number" placeholder="support" onChange={this.handleChangeFor('support')}></input>
             <Router>            
-                <Link to="/comment" ><button onClick={this.handleNextPage}>Next</button></Link>
+                <Link to="/comment" ><button>}>Next</button></Link>
             </Router>
             <Review />
 

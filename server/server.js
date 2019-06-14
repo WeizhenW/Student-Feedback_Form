@@ -10,10 +10,20 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-// app.get('/', (req, res) => {
-//     pool.query(`
-//     SELECT * FROM "feedback";`)
-// })
+app.get('/feedback', (req, res) => {
+    pool.query(`
+    SELECT * FROM "feedback";
+    `).then(
+        result => {
+            console.log(result);
+            res.send(result.rows);
+        }
+    ).catch(
+        error => {
+            console.log('error with get route', error);
+        }
+    )
+})
 app.post('/submit', (req, res)=> {
     const feedback = req.body;
     pool.query(`

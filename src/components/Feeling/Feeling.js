@@ -14,10 +14,6 @@ class Feeling extends Component {
         })
     }
 
-    handleNextPage = () => {
-        
-    }
-
     render() {
         return (
             <div>
