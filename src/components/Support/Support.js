@@ -15,7 +15,7 @@ class Support extends Component {
         })
     }
 
-    handleSubmit = () => {
+    handleNextPage = () => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
             payload: this.state,
@@ -29,7 +29,7 @@ class Support extends Component {
             <p>Feeling?</p>
             <input type="number" placeholder="support" onChange={this.handleChangeFor('support')}></input>
             <Router>            
-                <Link to="/comment" ><button onClick={this.handleSubmit}>Next</button></Link>
+                <Link to="/comment" ><button onClick={this.handleNextPage}>Next</button></Link>
             </Router>
             <Review />
 

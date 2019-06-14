@@ -13,10 +13,9 @@ class Understanding extends Component {
         this.setState({
             [propertyName]: event.target.value,
         })
-        // console.log(this.state);
     }
 
-    handleSubmit = () => {
+    handleNextPage = () => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
             payload: this.state,
@@ -30,7 +29,7 @@ class Understanding extends Component {
             <p>Understanding?</p>
             <input type="number" placeholder="your understanding" onChange={this.handleChangeFor('understanding')}></input>
             <Router>            
-                <Link to="/support" ><button onClick={this.handleSubmit}>Next</button></Link>
+                <Link to="/support" ><button onClick={this.handleNextPage}>Next</button></Link>
             </Router>
             <Review />
 

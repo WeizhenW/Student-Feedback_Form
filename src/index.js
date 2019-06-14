@@ -7,22 +7,14 @@ import { applyMiddleware, createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { logger } from 'redux-logger';
 
-const feedbackObj = {
-    feeling: '',
-    understanding: '',
-    support: '',
-    comment: '',
-}
 const feedbackReducer = (state={}, action) => {
     if (action.type === 'SET_FEEDBACK') {
         return {...state, ...action.payload};
-    } 
+    } else if (action.type === 'CLEAR_FEEDBACK') {
+        return {};
+    }
     return state;
 }
-
-
-
-
 
 const storeInstance = createStore(
     combineReducers({

@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { HashRouter as Router, Link } from 'react-router-dom';
 import Review from '../Review/Review';
 
-
-
 class Comment extends Component {
     state = {
         comment: '',
@@ -16,7 +14,7 @@ class Comment extends Component {
         })
     }
 
-    handleSubmit = () => {
+    handleNextPage = () => {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
             payload: this.state,
@@ -30,7 +28,7 @@ class Comment extends Component {
             <p>Comments?</p>
             <input type="text" placeholder="your comments" onChange={this.handleChangeFor('comment')}></input>
             <Router>            
-                <Link to="/review" ><button onClick={this.handleSubmit}>Next</button></Link>
+                <Link to="/review" ><button onClick={this.handleNextPage}>Next</button></Link>
             </Router>
             <Review />
 

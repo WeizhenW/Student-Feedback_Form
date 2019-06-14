@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
+import { HashRouter as Router, Link } from 'react-router-dom';
+
 
 class Understanding extends Component {
+
+    handleSubmitFeedback = () => {
+        axios({
+            method: 'POST',
+            url: '/submit',
+            data: this.props.reduxState.feedbackReducer,
+        })
+    }
     completed = () => {
         const feedback = this.props.reduxState.feedbackReducer;
         return feedback.feeling && feedback.understanding && feedback.support && feedback.comment;
@@ -18,7 +29,9 @@ class Understanding extends Component {
                 <li>Comment: {this.props.reduxState.feedbackReducer.comment}</li>
             </ul>
             {this.completed()?
-                <button>Submit</button>
+                <Router>
+                    <Link to="/thankyou"><button onClick={this.handleSubmitFeedback}>Submit</button></Link>
+                </Router>
             :
                 <button>Incomplete</button>
             }
