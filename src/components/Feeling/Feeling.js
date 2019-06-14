@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Link } from 'react-router-dom';
+import Review from '../Review/Review';
 
 
 
@@ -31,6 +32,7 @@ class Feeling extends Component {
             <Router>            
                 <Link to="/understanding" ><button onClick={this.handleSubmit}>Next</button></Link>
             </Router>
+            <Review />
         </div>
          );
     }

@@ -6,6 +6,7 @@ import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comment from '../Comment/Comment';
+import Review from '../Review/Review';
 
 class App extends Component {
 
@@ -23,6 +24,7 @@ class App extends Component {
           <Route path="/understanding" component={Understanding} />
           <Route path="/support"  component={Support} />
           <Route path="/comment"  component={Comment} />
+          <Route path="/review"  component={Review} />
         </Router>
         
       </div>
