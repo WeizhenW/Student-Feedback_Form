@@ -5,22 +5,14 @@ import Review from '../Review/Review';
 
 
 class Understanding extends Component {
-    state = {
-        understanding: '',
-    }
 
     handleChangeFor = (propertyName) => (event) => {
-        this.setState({
-            [propertyName]: event.target.value,
+        this.props.dispatch({
+            type: 'SET_FEEDBACK',
+            payload: {[propertyName]: event.target.value},
         })
     }
 
-    handleNextPage = () => {
-        this.props.dispatch({
-            type: 'SET_FEEDBACK',
-            payload: this.state,
-        })
-    }
 
     render() {
         return (

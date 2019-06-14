@@ -4,7 +4,7 @@ import axios from 'axios';
 import { HashRouter as Router, Link } from 'react-router-dom';
 
 
-class Understanding extends Component {
+class Review extends Component {
 
     handleSubmitFeedback = () => {
         axios({
@@ -43,4 +43,4 @@ class Understanding extends Component {
 const mapReduxStateToProps = (reduxState) => ({
     reduxState,
 })
-export default connect(mapReduxStateToProps)(Understanding);
+export default connect(mapReduxStateToProps)(Review);

@@ -4,21 +4,17 @@ import { HashRouter as Router, Link } from 'react-router-dom';
 import Review from '../Review/Review';
 
 class Comment extends Component {
-    state = {
-        comment: '',
-    }
+
 
     handleChangeFor = (propertyName) => (event) => {
-        this.setState({
-            [propertyName]: event.target.value,
+        this.props.dispatch({
+            type: 'SET_FEEDBACK',
+            payload: {[propertyName]: event.target.value},
         })
     }
 
     handleNextPage = () => {
-        this.props.dispatch({
-            type: 'SET_FEEDBACK',
-            payload: this.state,
-        })
+        
     }
 
     render() {
