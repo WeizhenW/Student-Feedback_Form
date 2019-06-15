@@ -6,12 +6,15 @@ import axios from 'axios';
 //material ui
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const styles = {
     tableCell: {
         border: '1px solid grey',
         textAlign: 'center'
-
+    },
+    icon: {
+        fontSize: 28,
     }
 }
 
@@ -42,7 +45,12 @@ class Admin extends Component {
             <TableCell style={styles.tableCell}>{this.props.feedback.understanding}</TableCell>
             <TableCell style={styles.tableCell}>{this.props.feedback.support}</TableCell>
             <TableCell style={styles.tableCell}>{this.props.feedback.comments}</TableCell>
-            <TableCell style={styles.tableCell}><button onClick={this.handleDeleteFeedback}>Delete</button></TableCell>
+            <TableCell style={styles.tableCell}>        
+                <DeleteIcon 
+                    color="error" 
+                    style={styles.icon}
+                    onClick={this.handleDeleteFeedback} />
+            </TableCell>
         </TableRow>)
     }
 }
