@@ -21,8 +21,6 @@ const styles = {
         height: 50,
         width: 180,
     },
-    
-    
 }
 
 class Review extends Component {

@@ -57,6 +57,21 @@ app.delete('/feedback/:id', (req, res) => {
     )
 })
 
+//put route to update the flag
+app.put('/admin', (req, res) => {
+    pool.query(`
+    UPDATE "feedback" SET "flagged" = $1 WHERE "id"=$2;`,
+    [req.body.flagged, req.body.id]).then(
+        () => {
+            res.sendStatus(200);
+        }
+    ).catch(
+        error => {
+            console.log('error with put route', error);
+        }
+    )
+})
+
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
     console.log('Listening on port: ', PORT);

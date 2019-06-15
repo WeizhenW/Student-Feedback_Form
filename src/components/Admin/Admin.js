@@ -57,6 +57,7 @@ class Admin extends Component {
                                 <TableCell style={styles.tableCell}>Comprehension</TableCell>
                                 <TableCell style={styles.tableCell}>Support</TableCell>
                                 <TableCell style={styles.tableCell}>Comments</TableCell>
+                                <TableCell style={styles.tableCell}>Flag</TableCell>
                                 <TableCell style={styles.tableCell}>Delete</TableCell>
                             </TableRow>
                         </TableHead>
