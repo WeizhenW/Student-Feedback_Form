@@ -40,6 +40,21 @@ app.post('/submit', (req, res)=> {
     )
 })
 
+app.delete('/feedback/:id', (req, res) => {
+    const idToDelete = req.params.id;
+    pool.query(`
+        DELETE FROM "feedback" WHERE "id"=$1
+    `, [idToDelete]).then(
+        () => {
+            res.sendStatus(200);
+        }
+    ).catch(
+        error => {
+            console.log('error with delete route', error);
+        }
+    )
+})
+
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
     console.log('Listening on port: ', PORT);
