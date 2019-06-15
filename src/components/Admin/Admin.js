@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 
 
 class Admin extends Component {
-//function to trigger the get rote and dispatch the value to reducer
+    //function to trigger the get rote and dispatch the value to reducer
     listReload = () => {
         axios({
             method: 'GET',
@@ -22,15 +22,16 @@ class Admin extends Component {
         )
     }
     //call the reload function after component mounted in DOM
-   componentDidMount(){
-       this.listReload();
+    componentDidMount() {
+        this.listReload();
     };
-    
+
     render() {
         return (
             <div>
-                <Header />
-                <h2>Feedback Results</h2>
+                <header className="App-header" color="primary">
+                    <h1 className="App-title ">Feedback Results</h1>
+                </header>                
                 <table>
                     <tr>
                         <th>Feeling</th>
@@ -38,10 +39,10 @@ class Admin extends Component {
                         <th>Support</th>
                         <th>Comments</th>
                         <th>Delete</th>
-                    </tr>  
+                    </tr>
                     {/* loop through to append feedbacks in DOM               */}
-                    {this.props.reduxState.adminReducer.map(feedback => <AdminItem feedback={feedback} listReload={this.listReload}/>)}
-                </table>            
+                    {this.props.reduxState.adminReducer.map(feedback => <AdminItem feedback={feedback} listReload={this.listReload} />)}
+                </table>
             </div>
         );
     }

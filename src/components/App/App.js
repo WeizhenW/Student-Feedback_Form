@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-//for router
+//for routers
 import { HashRouter as Router, Route } from 'react-router-dom';
 //page components
 import Feeling from '../Feeling/Feeling';
@@ -9,10 +9,10 @@ import Support from '../Support/Support';
 import Comment from '../Comment/Comment';
 import ThankYou from '../ThankYou/ThankYou';
 import Admin from '../Admin/Admin';
-//material ui
+//material ui components
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { createMuiTheme } from '@material-ui/core/styles';
-
+//define theme
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -39,7 +39,6 @@ class App extends Component {
             <Route path="/understanding" component={Understanding} />
             <Route path="/support"  component={Support} />
             <Route path="/comment"  component={Comment} />
-            {/* <Route path="/review"  component={Review} /> */}
             <Route path="/thankyou"  component={ThankYou} />
             <Route path="/admin"  component={Admin} />
           </Router>

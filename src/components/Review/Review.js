@@ -6,13 +6,23 @@ import { HashRouter as Router, Link } from 'react-router-dom';
 //material ui
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import TextField from '@material-ui/core/TextField';
 
 const styles = {
     card: {
         maxWidth: '80%',
+        height: 250,
         margin: '30px auto',
     },
+    list: {
+        listStyle: 'none',
+        fontSize: 20,
+    },
+    button: {
+        height: 50,
+        width: 180,
+    },
+    
+    
 }
 
 class Review extends Component {
@@ -36,7 +46,7 @@ class Review extends Component {
                 <Card style={styles.card}>
 
                     <h2>Review Your Feedback</h2>
-                    <ul>
+                    <ul style={styles.list}>
                         {/* render the feedbackReducer's value in DOM */}
                         <li>Feeling: {this.props.reduxState.feedbackReducer.feeling}</li>
                         <li>Understanding: {this.props.reduxState.feedbackReducer.understanding}</li>
@@ -47,10 +57,10 @@ class Review extends Component {
                     {this.completed() ?
                         <Router>
                             {/* trigger the submit on click */}
-                            <Link to="/thankyou"><button onClick={this.handleSubmitFeedback}>Submit</button></Link>
+                            <Link to="/thankyou"><Button style={styles.button} variant="contained" color="secondary" onClick={this.handleSubmitFeedback}>Submit</Button></Link>
                         </Router>
                         :
-                        <button>Incomplete</button>
+                        <Button style={styles.button} variant="contained" color="secondary" disabled>Incomplete</Button>
                     }
                 </Card>
             </div>
