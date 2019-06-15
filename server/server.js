@@ -10,9 +10,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
+//get route to retrieve information from database
 app.get('/feedback', (req, res) => {
     pool.query(`
-    SELECT * FROM "feedback";
+    SELECT * FROM "feedback" ORDER BY "id" DESC;
     `).then(
         result => {
             console.log(result);
@@ -24,6 +25,7 @@ app.get('/feedback', (req, res) => {
         }
     )
 })
+//post route to add new feedback to database
 app.post('/submit', (req, res)=> {
     const feedback = req.body;
     pool.query(`
@@ -39,7 +41,7 @@ app.post('/submit', (req, res)=> {
         }
     )
 })
-
+//delete route to delete one feedback
 app.delete('/feedback/:id', (req, res) => {
     const idToDelete = req.params.id;
     pool.query(`

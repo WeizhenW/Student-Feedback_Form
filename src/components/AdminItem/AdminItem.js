@@ -4,13 +4,15 @@ import { HashRouter as Router, Link } from 'react-router-dom';
 import axios from 'axios';
 
 class Admin extends Component {
-
+    //function to trigger the delete route and delete one feedback from database
     handleDeleteFeedback = () => {
+        alert('confirm delete');
         axios({
             method: 'DELETE',
             url: '/feedback/'+this.props.feedback.id,
         }).then(
             () => {
+                //reload page
                 this.props.listReload();
             }
         ).catch(
@@ -22,6 +24,7 @@ class Admin extends Component {
 
     render() {
         return (
+            // structure of each table row
         <tr key={this.props.feedback.id}>
             <td>{this.props.feedback.feeling}</td>
             <td>{this.props.feedback.understanding}</td>

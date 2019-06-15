@@ -11,21 +11,18 @@ import Admin from '../Admin/Admin';
 
 class App extends Component {
 
-  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Feedback!</h1>
-          <h4><i>Don't forget it!</i></h4>
-        </header>
+        
         <br/>
+        {/* below define routers */}
         <Router>
-          <Route path="/" exact component={Feeling} />
+          <Route path="/" exact handleChangeFor={this.handleChangeFor} component={Feeling} />
           <Route path="/understanding" component={Understanding} />
           <Route path="/support"  component={Support} />
           <Route path="/comment"  component={Comment} />
-          <Route path="/review"  component={Review} />
+          {/* <Route path="/review"  component={Review} /> */}
           <Route path="/thankyou"  component={ThankYou} />
           <Route path="/admin"  component={Admin} />
         </Router>
