@@ -2,7 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { HashRouter as Router, Link } from 'react-router-dom';
-import Header from '../Header/Header';
+
+//material ui
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import TextField from '@material-ui/core/TextField';
+
+const styles = {
+    card: {
+        maxWidth: '80%',
+        margin: '30px auto',
+    },
+}
 
 class Review extends Component {
     //function to trigger the axios post route and pass the feedbackReducer's state value
@@ -22,25 +33,28 @@ class Review extends Component {
     render() {
         return (
             <div>
-            <h2>Review Your Feedback</h2>
-            <ul>
-                {/* render the feedbackReducer's value in DOM */}
-                <li>Feeling: {this.props.reduxState.feedbackReducer.feeling}</li>
-                <li>Understanding: {this.props.reduxState.feedbackReducer.understanding}</li>
-                <li>Support: {this.props.reduxState.feedbackReducer.support}</li>
-                <li>Comment: {this.props.reduxState.feedbackReducer.comment}</li>
-            </ul>
-            {/* check if all the fields completed and show the button with different text */}
-            {this.completed()?
-                <Router>
-                    {/* trigger the submit on click */}
-                    <Link to="/thankyou"><button onClick={this.handleSubmitFeedback}>Submit</button></Link>
-                </Router>
-            :
-                <button>Incomplete</button>
-            }
-        </div>
-         );
+                <Card style={styles.card}>
+
+                    <h2>Review Your Feedback</h2>
+                    <ul>
+                        {/* render the feedbackReducer's value in DOM */}
+                        <li>Feeling: {this.props.reduxState.feedbackReducer.feeling}</li>
+                        <li>Understanding: {this.props.reduxState.feedbackReducer.understanding}</li>
+                        <li>Support: {this.props.reduxState.feedbackReducer.support}</li>
+                        <li>Comment: {this.props.reduxState.feedbackReducer.comment}</li>
+                    </ul>
+                    {/* check if all the fields completed and show the button with different text */}
+                    {this.completed() ?
+                        <Router>
+                            {/* trigger the submit on click */}
+                            <Link to="/thankyou"><button onClick={this.handleSubmitFeedback}>Submit</button></Link>
+                        </Router>
+                        :
+                        <button>Incomplete</button>
+                    }
+                </Card>
+            </div>
+        );
     }
 }
 
