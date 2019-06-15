@@ -1,9 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Link } from 'react-router-dom';
 import axios from 'axios';
-import AdminItem from "../AdminItem/AdminItem";
-import Header from '../Header/Header';
+import AdminItem from '../AdminItem/AdminItem';
+import './Admin.css';
+
+//material ui
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+
+const styles = {
+    table: {
+        width: '60%',
+        margin: '30px auto',
+    },
+    tableCell: {
+        border: '1px solid grey',
+        fontSize: 16,
+        textAlign: 'center'
+    }
+}
 
 
 class Admin extends Component {
@@ -31,19 +49,23 @@ class Admin extends Component {
             <div>
                 <header className="App-header" color="primary">
                     <h1 className="App-title ">Feedback Results</h1>
-                </header>                
-                <table>
-                    <tr>
-                        <th>Feeling</th>
-                        <th>Comprehension</th>
-                        <th>Support</th>
-                        <th>Comments</th>
-                        <th>Delete</th>
-                    </tr>
-                    {/* loop through to append feedbacks in DOM               */}
-                    {this.props.reduxState.adminReducer.map(feedback => <AdminItem feedback={feedback} listReload={this.listReload} />)}
-                </table>
-            </div>
+                </header>
+
+                    <Table style={styles.table}>
+                        <TableHead >
+                            <TableRow>
+                                <TableCell style={styles.tableCell}>Feeling</TableCell>
+                                <TableCell style={styles.tableCell}>Comprehension</TableCell>
+                                <TableCell style={styles.tableCell}>Support</TableCell>
+                                <TableCell style={styles.tableCell}>Comments</TableCell>
+                                <TableCell style={styles.tableCell}>Delete</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody style={styles.tableBody}>
+                            {this.props.reduxState.adminReducer.map(feedback => <AdminItem feedback={feedback} listReload={this.listReload} />)}
+                        </TableBody>
+                    </Table>
+            </div >
         );
     }
 }
