@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 //material ui
-//material ui
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import DeleteIcon from '@material-ui/icons/Delete';
