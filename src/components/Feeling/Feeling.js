@@ -33,7 +33,6 @@ const styles = {
         width: 300,
         margin: 'auto'
     },
-    
 }
 
 class Feeling extends Component {
@@ -42,6 +41,12 @@ class Feeling extends Component {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
             payload: { [propertyName]: event.target.value },
+        })
+    }
+    //function to clear all the input and start again
+    handleClearAll = () => {
+        this.props.dispatch({
+            type: 'CLEAR_FEEDBACK',
         })
     }
 
@@ -53,6 +58,7 @@ class Feeling extends Component {
                     <h2>How are you feeling today?</h2>
                     <FormControl style={styles.form}>
                         <InputLabel htmlFor="feeling">Feeling</InputLabel>
+                        {/* drop down list in scale 1-5 */}
                         <Select
                             value={this.props.reduxState.feedbackReducer.feeling}
                             onChange={this.handleChangeFor('feeling')}
@@ -68,8 +74,9 @@ class Feeling extends Component {
                     {/* link to the next page */}
                     <CardActions style={styles.button}>
                         <Router>
-                            <Link to="/understanding" ><Button variant="contained" color="secondary" style={styles.button} >Next</Button></Link>
+                            <Link to="/understanding" ><Button variant="contained" color="primary" style={styles.button} >Next</Button></Link>
                         </Router>
+                        <Button onClick={this.handleClearAll} variant="contained" color="secondary">Clear All</Button>
                     </CardActions>
                 </Card>
                 <Review />

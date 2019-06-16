@@ -12,6 +12,7 @@ import Review from '../Review/Review';
 //material ui
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -44,6 +45,12 @@ class Support extends Component {
         })
     }
 
+    handleClearAll = () => {
+        this.props.dispatch({
+            type: 'CLEAR_FEEDBACK',
+        })
+    }
+
     render() {
         return (
             <div>
@@ -63,10 +70,13 @@ class Support extends Component {
                             <MenuItem value={4}>4</MenuItem>
                             <MenuItem value={5}>5</MenuItem>
                         </Select>
-                    </FormControl>                    
+                    </FormControl>
+                    <CardActions style={styles.button}>
                     <Router>
-                        <Link to="/comment" ><Button style={styles.button} variant="contained" color="secondary">Next</Button></Link>
+                        <Link to="/comment" ><Button style={styles.button} variant="contained" color="primary">Next</Button></Link>
+                        <Link to="/" ><Button onClick={this.handleClearAll} variant="contained" color="secondary">Clear All</Button></Link>
                     </ Router>
+                    </CardActions>
                     </Card>
                     <Review />
             

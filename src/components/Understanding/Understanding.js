@@ -12,6 +12,7 @@ import Review from '../Review/Review';
 //material ui
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -32,7 +33,7 @@ const styles = {
         width: 300,
         margin: 'auto'
     },
-    
+
 }
 
 class Understanding extends Component {
@@ -41,6 +42,12 @@ class Understanding extends Component {
         this.props.dispatch({
             type: 'SET_FEEDBACK',
             payload: { [propertyName]: event.target.value },
+        })
+    }
+
+    handleClearAll = () => {
+        this.props.dispatch({
+            type: 'CLEAR_FEEDBACK',
         })
     }
 
@@ -64,9 +71,12 @@ class Understanding extends Component {
                             <MenuItem value={5}>5</MenuItem>
                         </Select>
                     </FormControl>
-                    <Router>
-                        <Link to="/support" ><Button style={styles.button} variant="contained" color="secondary">Next</Button></Link>
-                    </Router>
+                    <CardActions style={styles.button}>
+                        <Router>
+                            <Link to="/support" ><Button variant="contained" color="primary">Next</Button></Link>
+                            <Link to="/" ><Button onClick={this.handleClearAll} variant="contained" color="secondary">Clear All</Button></Link>
+                        </Router>
+                    </CardActions>
                 </Card>
                 <Review />
             </div>
