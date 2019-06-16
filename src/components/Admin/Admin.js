@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import AdminItem from '../AdminItem/AdminItem';
+import Header from '../Header/Header';
 
 //material ui
 import Table from '@material-ui/core/Table';
@@ -46,9 +47,7 @@ class Admin extends Component {
     render() {
         return (
             <div>
-                <header className="App-header" color="primary">
-                    <h1 className="App-title ">ADMIN - Feedback Results</h1>
-                </header>
+                <Header />
 
                     <Table style={styles.table}>
                         <TableHead >
