@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+import swal from 'sweetalert';
+
 //material ui
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
@@ -23,7 +25,6 @@ class Admin extends Component {
     
     //function to perform axios put request to server/database
     handleCheckbox = () => {
-        
         axios({
             method: 'PUT',
             url: '/admin',
@@ -39,20 +40,38 @@ class Admin extends Component {
     }
     //function to trigger the delete route and delete one feedback from database
     handleDeleteFeedback = () => {
-        alert('confirm delete');
-        axios({
-            method: 'DELETE',
-            url: '/feedback/'+this.props.feedback.id,
-        }).then(
-            () => {
-                //reload page
-                this.props.listReload();
+        //add sweet alert to confirm the deletion
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this feedback!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+              //if confirm => axios request
+            if (willDelete) {
+              swal("Your feedback has been deleted!", {
+                icon: "success",
+              });
+              axios({
+                method: 'DELETE',
+                url: '/feedback/'+this.props.feedback.id,
+            }).then(
+                () => {
+                    //reload page
+                    this.props.listReload();
+                }
+            ).catch(
+                error => {
+                    console.log('error with axios delete', error);
+                }
+            )
+            } else {
+                //if cancel do nothing
+              swal("Your feedback hasn't been deleted!");
             }
-        ).catch(
-            error => {
-                console.log('error with axios delete', error);
-            }
-        )
+          });
     }
 
     render() {
