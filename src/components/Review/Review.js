@@ -9,7 +9,7 @@ import Card from '@material-ui/core/Card';
 
 const styles = {
     card: {
-        maxWidth: '80%',
+        maxWidth: '50%',
         height: 250,
         margin: '30px auto',
     },
@@ -54,7 +54,7 @@ class Review extends Component {
                     {this.completed() ?
                         <Router>
                             {/* trigger the submit on click */}
-                            <Link to="/thankyou"><Button style={styles.button} variant="contained" color="secondary" onClick={this.handleSubmitFeedback}>Submit</Button></Link>
+                            <Link to="/thankyou"><Button style={styles.button} variant="contained" color="primary" onClick={this.handleSubmitFeedback}>Submit</Button></Link>
                         </Router>
                         :
                         <Button style={styles.button} variant="contained" color="secondary" disabled>Incomplete</Button>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
 //material ui
 import AppBar from '@material-ui/core/AppBar';

@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button';
 //material ui style
 const styles = {
     card: {
-        maxWidth: '80%',
+        maxWidth: '50%',
         height: 250,
         margin: '20px auto',
     },
@@ -21,7 +21,8 @@ const styles = {
         width: '50%',
     },
     button: {
-        float: "right",
+        margin: '10px auto',
+        justifyContent: 'center'
     },
 }
 

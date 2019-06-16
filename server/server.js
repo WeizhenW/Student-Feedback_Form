@@ -16,7 +16,6 @@ app.get('/feedback', (req, res) => {
     SELECT * FROM "feedback" ORDER BY "id" DESC;
     `).then(
         result => {
-            console.log(result);
             res.send(result.rows);
         }
     ).catch(

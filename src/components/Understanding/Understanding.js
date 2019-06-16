@@ -20,12 +20,13 @@ import Select from '@material-ui/core/Select';
 //material ui styles
 const styles = {
     card: {
-        maxWidth: '80%',
+        maxWidth: '50%',
         height: 250,
         margin: '20px auto',
     },
     button: {
-        float: "right",
+        margin: '10px auto',
+        justifyContent: 'center'
     },
     form: {
         display: 'flex',
