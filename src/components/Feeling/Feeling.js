@@ -54,6 +54,7 @@ class Feeling extends Component {
         return (
             <div>
                 <Header />
+                {/* use material ui Card */}
                 <Card style={styles.card}>
                     <h2>How are you feeling today?</h2>
                     <FormControl style={styles.form}>

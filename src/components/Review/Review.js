@@ -42,7 +42,6 @@ class Review extends Component {
         return (
             <div>
                 <Card style={styles.card}>
-
                     <h2>Review Your Feedback</h2>
                     <ul style={styles.list}>
                         {/* render the feedbackReducer's value in DOM */}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter as Router, Link as RouterLink } from 'react-router-dom';
 
-
 //material ui
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,10 +9,9 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Link from '@material-ui/core/Link';
 
-
 //header file
 class Header extends Component {
-
+//use material ui app-bar
     state = {
         anchorEl: null,
     };
@@ -26,14 +24,11 @@ class Header extends Component {
         this.setState({ anchorEl: null });
     };
 
-
     render() {
         const { anchorEl } = this.state;
         return (
-
             <AppBar position="static">
                 <Toolbar>
-                    
                     <IconButton
                         aria-owns={anchorEl ? 'simple-menu' : undefined}
                         aria-haspopup="true" onClick={this.handleClick} variant="h6">
@@ -54,8 +49,6 @@ class Header extends Component {
                     </Menu>
                 </Toolbar>
             </AppBar>
-
-
         );
     }
 }
