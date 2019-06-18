@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 //for routers
 import { HashRouter as Router, Route } from 'react-router-dom';
@@ -29,23 +30,55 @@ const theme = createMuiTheme({
 
 class App extends Component {
 
+  //function to capture the input and dispatch to reducer to store the value
+  handleChangeFor = (propertyName) => (event) => {
+    this.props.dispatch({
+      type: 'SET_FEEDBACK',
+      payload: { [propertyName]: event.target.value },
+    })
+  }
+  //function to clear all the input and start again
+  handleClearAll = () => {
+    this.props.dispatch({
+      type: 'CLEAR_FEEDBACK',
+    })
+  }
+
   render() {
     return (
       <MuiThemeProvider theme={theme}>
         <div className="App">
           {/* below define routers */}
+          {/* trying to pass the function through routers */}
           <Router>
-            <Route path="/" exact handleChangeFor={this.handleChangeFor} component={Feeling} />
-            <Route path="/understanding" component={Understanding} />
-            <Route path="/support"  component={Support} />
-            <Route path="/comment"  component={Comment} />
-            <Route path="/thankyou"  component={ThankYou} />
-            <Route path="/admin"  component={Admin} />
+            <Route path="/" exact
+              render={(routeProps) =>
+                <Feeling
+                  handleChangeFor={this.handleChangeFor}
+                  handleClearAll={this.handleClearAll} />} />
+            <Route path="/understanding"
+              render={(routeProps) =>
+                <Understanding
+                  handleChangeFor={this.handleChangeFor}
+                  handleClearAll={this.handleClearAll} />} />
+            <Route path="/support"
+              render={(routeProps) =>
+                <Support
+                  handleChangeFor={this.handleChangeFor}
+                  handleClearAll={this.handleClearAll} />} />
+            <Route path="/comment" render={(routeProps) =>
+              <Comment
+                handleChangeFor={this.handleChangeFor}
+                handleClearAll={this.handleClearAll} />} />
+            <Route path="/thankyou" component={ThankYou} />
+            <Route path="/admin" component={Admin} />
           </Router>
         </div>
-        </MuiThemeProvider>
+      </MuiThemeProvider>
     );
   }
 }
-
-export default App;
+const mapReduxStateToProps = (reduxState) => ({
+  reduxState,
+})
+export default connect(mapReduxStateToProps)(App);

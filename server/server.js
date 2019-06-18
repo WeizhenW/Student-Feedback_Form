@@ -21,6 +21,7 @@ app.get('/feedback', (req, res) => {
     ).catch(
         error => {
             console.log('error with get route', error);
+            res.sendStatus(500);
         }
     )
 })
@@ -37,6 +38,7 @@ app.post('/submit', (req, res)=> {
     ).catch(
         error => {
             console.log('error with post route', error);
+            res.sendStatus(500);
         }
     )
 })
@@ -52,6 +54,7 @@ app.delete('/feedback/:id', (req, res) => {
     ).catch(
         error => {
             console.log('error with delete route', error);
+            res.sendStatus(500);
         }
     )
 })
@@ -67,6 +70,7 @@ app.put('/admin', (req, res) => {
     ).catch(
         error => {
             console.log('error with put route', error);
+            res.sendStatus(500);
         }
     )
 })

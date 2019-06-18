@@ -37,19 +37,19 @@ const styles = {
 }
 
 class Feeling extends Component {
-    //function to capture the input and dispatch to reducer to store the value
-    handleChangeFor = (propertyName) => (event) => {
-        this.props.dispatch({
-            type: 'SET_FEEDBACK',
-            payload: { [propertyName]: event.target.value },
-        })
-    }
-    //function to clear all the input and start again
-    handleClearAll = () => {
-        this.props.dispatch({
-            type: 'CLEAR_FEEDBACK',
-        })
-    }
+    // //function to capture the input and dispatch to reducer to store the value
+    // handleChangeFor = (propertyName) => (event) => {
+    //     this.props.dispatch({
+    //         type: 'SET_FEEDBACK',
+    //         payload: { [propertyName]: event.target.value },
+    //     })
+    // }
+    // //function to clear all the input and start again
+    // handleClearAll = () => {
+    //     this.props.dispatch({
+    //         type: 'CLEAR_FEEDBACK',
+    //     })
+    // }
 
     render() {
         return (
@@ -63,7 +63,7 @@ class Feeling extends Component {
                         {/* drop down list in scale 1-5 */}
                         <Select
                             value={this.props.reduxState.feedbackReducer.feeling}
-                            onChange={this.handleChangeFor('feeling')}
+                            onChange={this.props.handleChangeFor('feeling')}
                         >
                             <MenuItem value=""><em></em></MenuItem>
                             <MenuItem value={1}>1</MenuItem>
@@ -78,7 +78,7 @@ class Feeling extends Component {
                         <Router>
                             <Link to="/understanding" ><Button  variant="contained" color="primary" style={styles.button} >Next</Button></Link>
                         </Router>
-                        <Button onClick={this.handleClearAll} variant="contained" color="secondary">Clear All</Button>
+                        <Button onClick={this.props.handleClearAll} variant="contained" color="secondary">Clear All</Button>
                     </CardActions>
                 </Card>
                 <Review />

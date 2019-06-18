@@ -39,18 +39,18 @@ const styles = {
 
 class Support extends Component {
 
-    handleChangeFor = (propertyName) => (event) => {
-        this.props.dispatch({
-            type: 'SET_FEEDBACK',
-            payload: { [propertyName]: event.target.value },
-        })
-    }
+    // handleChangeFor = (propertyName) => (event) => {
+    //     this.props.dispatch({
+    //         type: 'SET_FEEDBACK',
+    //         payload: { [propertyName]: event.target.value },
+    //     })
+    // }
 
-    handleClearAll = () => {
-        this.props.dispatch({
-            type: 'CLEAR_FEEDBACK',
-        })
-    }
+    // handleClearAll = () => {
+    //     this.props.dispatch({
+    //         type: 'CLEAR_FEEDBACK',
+    //     })
+    // }
 
     render() {
         return (
@@ -62,7 +62,7 @@ class Support extends Component {
                         <InputLabel htmlFor="support">Support</InputLabel>
                         <Select
                             value={this.props.reduxState.feedbackReducer.support}
-                            onChange={this.handleChangeFor('support')}
+                            onChange={this.props.handleChangeFor('support')}
                         >
                             <MenuItem value=""><em></em></MenuItem>
                             <MenuItem value={1}>1</MenuItem>
@@ -75,7 +75,7 @@ class Support extends Component {
                     <CardActions style={styles.button}>
                     <Router>
                         <Link to="/comment" ><Button style={styles.button} variant="contained" color="primary">Next</Button></Link>
-                        <Link to="/" ><Button onClick={this.handleClearAll} variant="contained" color="secondary">Clear All</Button></Link>
+                        <Link to="/" ><Button onClick={this.props.handleClearAll} variant="contained" color="secondary">Clear All</Button></Link>
                     </ Router>
                     </CardActions>
                     </Card>

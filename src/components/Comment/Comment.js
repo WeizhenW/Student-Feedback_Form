@@ -27,19 +27,19 @@ const styles = {
 }
 
 class Comment extends Component {
-    //function to capture the text input and dispatch to change the reducer state
-    handleChangeFor = (propertyName) => (event) => {
-        this.props.dispatch({
-            type: 'SET_FEEDBACK',
-            payload: { [propertyName]: event.target.value },
-        })
-    }
-    //function to clear all the input and restart the survey
-    handleClearAll = () => {
-        this.props.dispatch({
-            type: 'CLEAR_FEEDBACK',
-        })
-    }
+    // //function to capture the text input and dispatch to change the reducer state
+    // handleChangeFor = (propertyName) => (event) => {
+    //     this.props.dispatch({
+    //         type: 'SET_FEEDBACK',
+    //         payload: { [propertyName]: event.target.value },
+    //     })
+    // }
+    // //function to clear all the input and restart the survey
+    // handleClearAll = () => {
+    //     this.props.dispatch({
+    //         type: 'CLEAR_FEEDBACK',
+    //     })
+    // }
 
     render() {
         return (
@@ -55,10 +55,10 @@ class Comment extends Component {
                         multiline
                         rows="4"
                         style={styles.textField}
-                        onChange={this.handleChangeFor('comment')} />
+                        onChange={this.props.handleChangeFor('comment')} />
                     <CardActions style={styles.button}>
                         <Router>
-                            <Link to="/"><Button onClick={this.handleClearAll} variant="contained" color="secondary">Clear All</Button></Link>
+                            <Link to="/"><Button onClick={this.props.handleClearAll} variant="contained" color="secondary">Clear All</Button></Link>
                         </Router>
                     </CardActions>
                 </Card>
