@@ -1,6 +1,6 @@
 # STUDENT FEEDBACK FORM PROJECT
 
-The Student Feedback Form app will allow student to submit their feedback after the class and communicate easily with the instructors. It features four views with the following questions:
+The Student Feedback Form app will allow student to submit their feedback at the end of the day and communicate easily with the instructors. It features four views with the following questions:
 - how are you feeling today?
 - how well are you understanding the content?
 - how well are you being supported?
